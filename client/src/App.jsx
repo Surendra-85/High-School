@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
-import { AuthProvider } from './context/AuthContext';
+import { AuthProvider, useAuth } from './context/AuthContext';
 import CanvasBackground from './components/CanvasBackground';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import InitialLoader from './components/InitialLoader';
 import AuthModal from './components/AuthModal';
 import SearchModal from './components/SearchModal';
 import MaterialModal from './components/MaterialModal';
@@ -16,6 +17,7 @@ import SubjectDetailsPage from './pages/SubjectDetailsPage';
 import NoticesPage from './pages/NoticesPage';
 import StudentDashboard from './pages/StudentDashboard';
 import AdminDashboard from './pages/AdminDashboard';
+import AdminLoginPage from './pages/AdminLoginPage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import StaffLoginPage from './pages/StaffLoginPage';
@@ -28,6 +30,8 @@ import TermsPage from './pages/TermsPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 function AppContent() {
+  const { user } = useAuth();
+  const [initialLoading, setInitialLoading] = useState(true);
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [searchModalOpen, setSearchModalOpen] = useState(false);
   const [selectedMaterial, setSelectedMaterial] = useState(null);
@@ -40,6 +44,11 @@ function AppContent() {
   return (
     <div className="relative min-h-screen flex flex-col selection:bg-orange-600 selection:text-white bg-white">
       
+      {/* 1. Initial Animated Splash Loader */}
+      {initialLoading && (
+        <InitialLoader onComplete={() => setInitialLoading(false)} />
+      )}
+
       {/* Interactive Particle Background (Non-blocking) */}
       {!isAuthOrDashboardPage && <CanvasBackground />}
 
@@ -91,7 +100,13 @@ function AppContent() {
           />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
-          <Route path="/admin" element={<AdminDashboard />} />
+          
+          {/* Protected Admin Route: Admin Login Screen -> Admin Dashboard */}
+          <Route
+            path="/admin"
+            element={user?.role === 'admin' ? <AdminDashboard /> : <AdminLoginPage />}
+          />
+          
           <Route path="/staff-login" element={<StaffLoginPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/about" element={<AboutPage />} />
