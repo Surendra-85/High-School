@@ -58,14 +58,14 @@ const Navbar = ({ onOpenAuth, onOpenSearch }) => {
           </div>
           <div>
             <div className="flex items-center gap-1.5">
-              <span className="text-xl font-extrabold tracking-tight text-slate-900 group-hover:text-orange-600 transition">
-                EDUBOARD
+              <span className="text-xl font-black tracking-tight text-slate-900 group-hover:text-orange-600 transition">
+                ALL BOARD
               </span>
-              <span className="px-1.5 py-0.5 bg-orange-100 text-orange-800 border border-orange-200 text-[10px] font-extrabold rounded uppercase tracking-wider">
-                INDIA
+              <span className="px-2 py-0.5 bg-orange-100 text-orange-800 border border-orange-200 text-[10px] font-black rounded uppercase tracking-wider">
+                STUDY GROUP
               </span>
             </div>
-            <p className="text-[10px] text-slate-500 font-bold tracking-wider">LEARN TOGETHER • GROW TOGETHER</p>
+            <p className="text-[10px] text-slate-500 font-extrabold tracking-wider">LEARN TOGETHER • GROW TOGETHER</p>
           </div>
         </Link>
 
