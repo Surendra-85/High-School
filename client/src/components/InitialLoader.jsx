@@ -69,13 +69,9 @@ const InitialLoader = ({ onComplete }) => {
             Official 2026 Study Portal
           </div>
           
-          <h1 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-            ALL BOARD <span className="text-orange-600">STUDY GROUP</span>
+          <h1 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+            STUDY <span className="text-orange-600">GROUP</span>
           </h1>
-          
-          <p className="text-xs font-extrabold text-slate-500 tracking-widest uppercase">
-            Learn Together • Grow Together
-          </p>
         </div>
 
         {/* Progress Bar Container */}

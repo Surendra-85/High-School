@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { 
-  GraduationCap, User, ChevronDown, Menu, X, Sparkles, 
+import {
+  GraduationCap, User, ChevronDown, Menu, X, Sparkles,
   BookOpen, FileText, Bell, LogOut, ShieldCheck, UserPlus, LayoutDashboard,
   HelpCircle, Mail, Info, FileCode
 } from 'lucide-react';
@@ -48,7 +48,7 @@ const Navbar = ({ onOpenAuth, onOpenSearch }) => {
   return (
     <header className="sticky top-0 z-40 w-full bg-[#faf8f5]/95 backdrop-blur-md border-b border-amber-200/50 shadow-sm transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        
+
         {/* Brand Logo */}
         <Link to="/" className="flex items-center gap-3 group">
           <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-orange-600 via-amber-600 to-orange-500 p-0.5 shadow-md group-hover:scale-105 transition transform">
@@ -57,24 +57,23 @@ const Navbar = ({ onOpenAuth, onOpenSearch }) => {
             </div>
           </div>
           <div>
-            <div className="flex items-center gap-1.5">
-              <span className="text-xl font-black tracking-tight text-slate-900 group-hover:text-orange-600 transition">
-                ALL BOARD
+            <div className="flex flex-col leading-none">
+              <span className="text-xl font-black tracking-tight text-slate-900 group-hover:text-orange-600 transition uppercase">
+                STUDY
               </span>
-              <span className="px-2 py-0.5 bg-orange-100 text-orange-800 border border-orange-200 text-[10px] font-black rounded uppercase tracking-wider">
-                STUDY GROUP
+              <span className="text-[11px] font-black tracking-[0.25em] text-orange-600 uppercase mt-0.5">
+                GROUP
               </span>
             </div>
-            <p className="text-[10px] text-slate-500 font-extrabold tracking-wider">LEARN TOGETHER • GROW TOGETHER</p>
           </div>
         </Link>
 
         {/* Desktop Navigation Links matching Screenshot + Blog */}
         <nav className="hidden lg:flex items-center gap-5 text-xs font-extrabold text-slate-700">
-          
+
           {/* 1. Home */}
-          <Link 
-            to="/" 
+          <Link
+            to="/"
             className={`py-2 relative transition ${isActive('/') ? 'text-orange-600' : 'hover:text-orange-600'}`}
           >
             Home
@@ -126,8 +125,8 @@ const Navbar = ({ onOpenAuth, onOpenSearch }) => {
           </div>
 
           {/* 4. Notes */}
-          <Link 
-            to="/subject/hs-science" 
+          <Link
+            to="/subject/hs-science"
             className={`py-2 relative transition ${isActive('/subject/hs-science') ? 'text-orange-600' : 'hover:text-orange-600'}`}
           >
             Notes
@@ -135,8 +134,8 @@ const Navbar = ({ onOpenAuth, onOpenSearch }) => {
           </Link>
 
           {/* 5. Previous Papers */}
-          <Link 
-            to="/notices" 
+          <Link
+            to="/notices"
             className={`py-2 relative transition ${isActive('/notices') ? 'text-orange-600' : 'hover:text-orange-600'}`}
           >
             Previous Papers
@@ -144,16 +143,16 @@ const Navbar = ({ onOpenAuth, onOpenSearch }) => {
           </Link>
 
           {/* 6. Quiz / Model Papers */}
-          <Link 
-            to="/notices" 
+          <Link
+            to="/notices"
             className={`py-2 relative transition ${isActive('/notices') ? 'text-orange-600' : 'hover:text-orange-600'}`}
           >
             Quiz
           </Link>
 
           {/* 7. NCERT */}
-          <Link 
-            to="/subject/hs-math" 
+          <Link
+            to="/subject/hs-math"
             className={`py-2 relative transition ${isActive('/subject/hs-math') ? 'text-orange-600' : 'hover:text-orange-600'}`}
           >
             NCERT
@@ -161,8 +160,8 @@ const Navbar = ({ onOpenAuth, onOpenSearch }) => {
           </Link>
 
           {/* 8. Blog */}
-          <Link 
-            to="/blog" 
+          <Link
+            to="/blog"
             className={`py-2 relative transition ${isActive('/blog') ? 'text-orange-600' : 'hover:text-orange-600'}`}
           >
             Blog
@@ -170,8 +169,8 @@ const Navbar = ({ onOpenAuth, onOpenSearch }) => {
           </Link>
 
           {/* 9. Contact */}
-          <Link 
-            to="/contact" 
+          <Link
+            to="/contact"
             className={`py-2 relative transition ${isActive('/contact') ? 'text-orange-600' : 'hover:text-orange-600'}`}
           >
             Contact
@@ -182,7 +181,7 @@ const Navbar = ({ onOpenAuth, onOpenSearch }) => {
 
         {/* Action Controls */}
         <div className="flex items-center gap-3">
-          
+
           {/* Profile Button or Sign In Pill Button */}
           {user ? (
             <div className="relative" ref={dropdownRef}>

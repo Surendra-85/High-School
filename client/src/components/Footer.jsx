@@ -32,7 +32,7 @@ const Footer = () => {
                 <GraduationCap className="w-5 h-5" />
               </div>
               <span className="text-lg font-black text-slate-900 tracking-tight">
-                ALL BOARD STUDY GROUP
+                STUDY GROUP
               </span>
             </Link>
 
